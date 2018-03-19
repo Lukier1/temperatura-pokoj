@@ -38,7 +38,10 @@
         </div>
         <div class="card-panel teal lighten-2 white-text">
             <h5 class="center-align">Temperatura:</h5>
-            <h5 class="center-align">{{temp | number : 2}} °C</h5>
+            <h5 ng-if="!loading" class="center-align">{{temp | number : 2}} °C</h5>
+            <div class="center-align">
+            <a ng-if="loading" class="btn btn-floating pulse"> <i class=" material-icons large">file_download</i> </a>
+            </div>
         </div>
     </div>
     <div class="container">

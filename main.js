@@ -2,6 +2,7 @@ angular.module('tempApp', [])
 .controller('TempCurrentController', function ($scope) {
     var self = this;
 
+    $scope.loading = true;
     $scope.temp = 12;
     // Initialize Firebase
     var config = {
@@ -22,6 +23,7 @@ angular.module('tempApp', [])
     lastTemperatureRef.on('value', function (snapshot) {
         console.log($scope.temp);
         $scope.$apply(function () {
+            $scope.loading = false;
             $scope.temp = snapshot.val().value;
             $scope.date = snapshot.val().date;
         });
